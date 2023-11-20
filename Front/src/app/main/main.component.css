@@ -1,0 +1,16 @@
+.box {
+    height: 300px;
+    width: 400px;
+    border-radius: 30px;
+    border-color: orangered;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.font {
+    font-family: 'Gayathri', sans-serif;
+    font-family: 'Hina Mincho', serif;
+    font-weight: 600;
+    color: #0e7c7b;
+}
+
