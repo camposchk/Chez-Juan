@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,26 +8,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event) {
-    this.scrollFunction();
-  }
+  constructor(private renderer: Renderer2) { }
 
-  ngOnInit() {
-    // Inicialização, se necessário
-  }
-
-  scrollFunction() {
-    const header: HTMLElement | null = document.getElementById("header");
-
-    if (header) {
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
+  scrollToDestination() {
+    const destinationElement = this.renderer.selectRootElement('#destination');
+    if (destinationElement) {
+      destinationElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
