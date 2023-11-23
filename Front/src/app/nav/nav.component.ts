@@ -12,8 +12,8 @@ export class NavComponent {
 
   constructor(private renderer: Renderer2) { }
 
-  scrollToDestination() {
-    const destinationElement = this.renderer.selectRootElement('#destination');
+  scrollToDestination(destinationId: string) {
+    const destinationElement = this.renderer.selectRootElement(destinationId);
     if (destinationElement) {
       destinationElement.scrollIntoView({ behavior: 'smooth' });
     }

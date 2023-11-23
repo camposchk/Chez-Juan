@@ -2,3 +2,12 @@
 body {
     background-color: #00272B;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --mdc-filled-text-field-focus-active-indicator-color: #DDD8B8;
+    --mdc-filled-text-field-caret-color: #DDD8B8;
+    --mdc-filled-text-field-focus-label-text-color: #DDD8B8;   
+    /* --mdc-filled-text-field-label-text-color: #DDD8B8; */
+}

@@ -6,3 +6,20 @@
     font-family: 'Gayathri', sans-serif;
     color: #00272b;
 }
+
+.botao {
+    transition: 0.5s;
+    padding: 20px; 
+    position: absolute; 
+    top: 80%;
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #DDD8B8;
+    border: 2px solid #DDD8B8;
+}
+
+.botao:hover {
+    transition: 0.2s;
+    background-color: rgba(0, 0, 0, 0.6);
+}

@@ -3,5 +3,11 @@
     <h1 class="font" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #DDD8B8;" id="header">
         Chez-Juan
     </h1>
-    <button (click)="scrollToDestination()" style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); text-align: center; background-color: transparent; color: #DDD8B8;">VINHOS</button>
+    <div style="display: flex; flex-direction: column;">
+        <button (click)="scrollToDestination('#couverts')" class="botao" style="left: 30%;">COUVERTS</button>
+        <button (click)="scrollToDestination('#entradas')" class="botao" style="left: 40%;">ENTRADAS</button>
+        <button (click)="scrollToDestination('#principais')" class="botao" style="left: 50%;">PRINCIPAIS</button>
+        <button (click)="scrollToDestination('#sobremesas')" class="botao" style="left: 60%;">SOBREMESAS</button>
+        <button (click)="scrollToDestination('#vinhos')" class="botao" style="left: 70%;">VINHOS</button>    
+    </div>
 </div>
