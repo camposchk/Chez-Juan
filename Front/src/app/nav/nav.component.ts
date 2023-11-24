@@ -1,15 +1,16 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
 
+export class NavComponent {
   constructor(private renderer: Renderer2) { }
 
   scrollToDestination(destinationId: string) {
@@ -19,3 +20,5 @@ export class NavComponent {
     }
   }
 }
+
+

@@ -17,9 +17,24 @@
     background-color: rgba(0, 0, 0, 0.4);
     color: #DDD8B8;
     border: 2px solid #DDD8B8;
+    border-radius: 5px;
 }
 
 .botao:hover {
     transition: 0.2s;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+.parallax {
+    background-image: url("https://conteudo.imguol.com.br/c/entretenimento/60/2022/01/13/folhas-diversas-1642109435159_v2_1920x1080.jpg");
+    min-height: 900px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .hide {
+    display: none;
+    transform: 0.5s;
+  }
