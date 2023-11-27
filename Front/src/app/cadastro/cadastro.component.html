@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
     <img src="../../assets/logoclaro.png" alt="" style="height: 250px; width: 250px; margin-bottom: 35px;">
-    <div style="display: flex; flex-direction: column; margin-right: 18px;">
+    <div style="display: flex; flex-direction: column; margin-right: 18px;"> 
         <mat-form-field>
           <mat-label>Email</mat-label>
           <input matInput #input placeholder="Ex: juan@gmail.com" [(ngModel)]="username">
@@ -12,14 +12,20 @@
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" style="color: lightgray;">
             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
-        </mat-form-field> 
-        <p>Novo? <a href="cadastro">cadastre-se</a></p> 
+        </mat-form-field>  
+        <mat-form-field>
+          <mat-label>Repetir senha</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Ex: Batata123" [(ngModel)]="repeatPassword">
+
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" style="color: lightgray;">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>  
+        <p>Possui uma conta? <a href="">login</a></p> 
     </div>
     <!-- <a href="home"> -->
-      <button mat-mini-fab color="basic" style="margin-bottom: 50px;" (click)="logar()">
-        <mat-icon>login</mat-icon>
+      <button mat-mini-fab color="basic" style="margin-bottom: 50px;" (click)="create()">
+        <mat-icon>assignment_ind</mat-icon>
       </button>
     <!-- </a> -->
 </div>
-
-<router-outlet></router-outlet>

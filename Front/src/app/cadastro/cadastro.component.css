@@ -1,0 +1,7 @@
+p {
+    color: gray;
+}
+
+a:visited {
+    color: lightgray;
+}
