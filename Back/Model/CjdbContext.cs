@@ -27,7 +27,7 @@ public partial class CjdbContext : DbContext
     {
         modelBuilder.Entity<Imagem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC272D1A7D97");
+            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC273A3C4337");
 
             entity.ToTable("Imagem");
 
@@ -36,7 +36,7 @@ public partial class CjdbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC2757F9F43E");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC27BC85B880");
 
             entity.ToTable("Usuario");
 

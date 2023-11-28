@@ -13,6 +13,8 @@ public partial class Usuario
 
     public string Salt { get; set; } = null!;
 
+    public bool IsAdm { get; set; }
+
     public int? ImagemId { get; set; }
 
     public virtual Imagem? Imagem { get; set; }

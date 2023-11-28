@@ -5,3 +5,8 @@ p {
 a:visited {
     color: lightgray;
 }
+
+a {
+    color: lightgray
+}
+

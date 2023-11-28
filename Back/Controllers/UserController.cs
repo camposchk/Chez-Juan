@@ -13,6 +13,7 @@ namespace Back.Controllers;
 using DTO;
 using Model;
 using Services;
+using Trevisharp.Security.Jwt;
 
 [ApiController]
 [Route("user")]
@@ -23,7 +24,8 @@ public class UserController : ControllerBase
     public async Task<IActionResult> Login(
         [FromBody]UserData user,
         [FromServices]IUserService service,
-        [FromServices]ISecurityService security)
+        [FromServices]ISecurityService security,
+        [FromServices]CryptoService crypto)
     {
         var loggedUser = await service
             .GetByLogin(user.Login);
@@ -34,13 +36,15 @@ public class UserController : ControllerBase
         var password = await security.HashPassword(
             user.Password, loggedUser.Salt
         );
+
         var realPassword = loggedUser.Senha;
         if (password != realPassword)
             return Unauthorized("Senha incorreta.");
         
-        var jwt = await security.GenerateJwt(new {
+        var jwt = crypto.GetToken(new {
             id = loggedUser.Id,
-            photoId = loggedUser.ImagemId
+            photoId = loggedUser.ImagemId,
+            IsAdm = loggedUser.IsAdm
         });
         
         return Ok(new { jwt });

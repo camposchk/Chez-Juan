@@ -10,15 +10,14 @@
 .botao {
     transition: 0.5s;
     padding: 20px; 
-    position: absolute; 
-    top: 80%;
-    transform: translate(-50%, -50%); 
     text-align: center; 
     background-color: rgba(0, 0, 0, 0.4);
     color: #DDD8B8;
     border: 2px solid #DDD8B8;
     border-radius: 5px;
+    margin: 0 30px;
 }
+
 
 .botao:hover {
     transition: 0.2s;
@@ -27,7 +26,7 @@
 
 .parallax {
     background-image: url("https://conteudo.imguol.com.br/c/entretenimento/60/2022/01/13/folhas-diversas-1642109435159_v2_1920x1080.jpg");
-    min-height: 900px;
+    min-height: 1000px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
