@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ClientService } from '../client.service';
 import { RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,16 +26,20 @@ export class LoginComponent {
   
   constructor (public dialog: MatDialog,
     private client: ClientService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private router: Router) { }
 
   username: string = ""
   password: string = ""
+  adm: boolean = false
 
   logar()
   {
     this.client.login({
       login: this.username,
-      password: this.password
+      password: this.password,
+      adm: this.adm
+
     }, (result: any) => {
       if (result == null)
       {
@@ -43,6 +48,7 @@ export class LoginComponent {
       else
       {
         sessionStorage.setItem('jwt', JSON.stringify(result))
+        this.router.navigate(["/home"]);
       }
     })
   }

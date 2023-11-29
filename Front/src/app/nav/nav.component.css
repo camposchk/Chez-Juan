@@ -18,7 +18,6 @@
     margin: 0 30px;
 }
 
-
 .botao:hover {
     transition: 0.2s;
     background-color: rgba(0, 0, 0, 0.6);
@@ -37,3 +36,6 @@
     display: none;
     transform: 0.5s;
   }
+
+
+  

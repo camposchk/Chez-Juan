@@ -1,16 +1,35 @@
-<div style="display: flex; flex-direction: column; position: relative;">
-    <div class="parallax"></div>
-    <div id="header1">
-        <h1 class="font" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #DDD8B8;">
-            Chez-Juan
-        </h1>
-    </div>
-    <div style="display: flex; justify-content: center; position: absolute; top: 80%; width: 100%;">
-        <button (click)="scrollToDestination('#couverts')" class="botao">COUVERTS</button>
-        <button (click)="scrollToDestination('#entradas')" class="botao">ENTRADAS</button>
-        <button (click)="scrollToDestination('#principais')" class="botao">PRINCIPAIS</button>
-        <button (click)="scrollToDestination('#sobremesas')" class="botao">SOBREMESAS</button>
-        <button (click)="scrollToDestination('#vinhos')" class="botao">VINHOS</button>    
-    </div>
-</div>
+<mat-sidenav-container style="height: 100%;">
+    <mat-sidenav #drawer class="example-sidenav" mode="side" style="height: 100%; width: 250px;">
+        <p>Auto-resizing sidenav</p>
+        <div *ngIf="showFiller">
+            <p>Lorem, ipsum dolor sit amet consectetur.</p>
+        </div>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+        </button>
+    </mat-sidenav>
 
+    <mat-sidenav-content>
+        <div style="position: absolute; top: 0; left: 0; z-index: 1001;">
+            <button type="button" mat-button (click)="drawer.toggle()" class="b">
+                <mat-icon fontIcon="menu" style="color: #DDD8B8;"></mat-icon>
+            </button>
+        </div>
+
+        <div class="parallax"></div>
+
+        <div id="header1">
+            <h1 class="font" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #DDD8B8;">
+                Chez-Juan
+            </h1>
+        </div>
+
+        <div style="display: flex; justify-content: center; position: absolute; top: 80%; width: 100%;">
+            <button (click)="scrollToDestination('#couverts')" class="botao">COUVERTS</button>
+            <button (click)="scrollToDestination('#entradas')" class="botao">ENTRADAS</button>
+            <button (click)="scrollToDestination('#principais')" class="botao">PRINCIPAIS</button>
+            <button (click)="scrollToDestination('#sobremesas')" class="botao">SOBREMESAS</button>
+            <button (click)="scrollToDestination('#vinhos')" class="botao">VINHOS</button>    
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

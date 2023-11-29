@@ -20,9 +20,14 @@ import { FormsModule } from '@angular/forms';
 export class CadastroComponent {
   hidePassword = true;
   
+  adm: boolean = false
   username: string = ""
   password: string = ""
   repeatPassword: string = ""
+
+  onToggleChange() {
+    this.adm = !this.adm;
+  }
 
   constructor(private client: ClientService) {}
 
@@ -32,7 +37,8 @@ export class CadastroComponent {
     {
       this.client.register({
         login: this.username,
-        password: this.password
+        password: this.password,
+        adm: this.adm
       })
     }
     else

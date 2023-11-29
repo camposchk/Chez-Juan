@@ -56,6 +56,7 @@ public class UserController : ControllerBase
         [FromBody]UserData user,
         [FromServices]IUserService service)
     {
+        Console.WriteLine(user.Adm);
         var errors = new List<string>();
         if (user is null || user.Login is null)
             errors.Add("É necessário informar um login.");
