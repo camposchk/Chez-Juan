@@ -47,9 +47,12 @@ export class LoginComponent {
       }
       else
       {
-        sessionStorage.setItem('jwt', JSON.stringify(result))
+        sessionStorage.setItem('jwt', JSON.stringify(result));
+        // console.log(JSON.stringify(result.loggedUser.IsAdm))
+        // localStorage.setItem('isAdm', JSON.stringify(result.loggedUser.IsAdm));
+
         this.router.navigate(["/home"]);
       }
-    })
+    });
   }
 }

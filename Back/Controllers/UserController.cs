@@ -44,10 +44,11 @@ public class UserController : ControllerBase
         var jwt = crypto.GetToken(new {
             id = loggedUser.Id,
             photoId = loggedUser.ImagemId,
-            IsAdm = loggedUser.IsAdm
+            isAdm = loggedUser.IsAdm
         });
         
-        return Ok(new { jwt });
+        Console.WriteLine(loggedUser.IsAdm);
+        return Ok(new { jwt, loggedUser.IsAdm });
     }
 
     [HttpPost("register")]

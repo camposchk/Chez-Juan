@@ -1,14 +1,34 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrls: ['./main.component.css']
 })
 export class MainComponent {
 
-}
+  addTremorEffect() {
+    const textElements = document.querySelectorAll('.tremor-text');
+    textElements.forEach(element => {
+      element.classList.add('shake');
+      element.addEventListener('click', this.abrirModal);
+    });
+  }
 
+  removeTremorEffect() {
+    const textElements = document.querySelectorAll('.tremor-text');
+    textElements.forEach(element => {
+      element.classList.remove('shake');
+      element.removeEventListener('click', this.abrirModal);
+    });
+  }
+
+  abrirModal() {
+    document.getElementById('meuModal')!.style.display = 'block';
+  }
+
+  fecharModal() {
+    document.getElementById('meuModal')!.style.display = 'none';
+  }
+}

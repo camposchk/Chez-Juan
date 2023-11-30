@@ -1,13 +1,17 @@
 <mat-sidenav-container style="height: 100%;">
-    <mat-sidenav #drawer class="example-sidenav" mode="side" style="height: 100%; width: 250px;">
-        <p>Auto-resizing sidenav</p>
+    <mat-sidenav #drawer class="example-sidenav" mode="side" style="height: 100%; width: 250px; background-color: #00272b;">
+        <p style="margin-top: 5px; margin-left: 5px;">Olá, Fulano!</p>
+
+        <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
+        <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>
+        <button (click)="showFiller = !showFiller" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Admin</button>
+
         <div *ngIf="showFiller">
-            <p>Lorem, ipsum dolor sit amet consectetur.</p>
+            <button mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Promoções</button>
+            <button mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar produto</button>
+            <button (click)="addTremorEffect()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Deletar Produto</button>
         </div>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-        </button>
-    </mat-sidenav>
+    </mat-sidenav>    
 
     <mat-sidenav-content>
         <div style="position: absolute; top: 0; left: 0; z-index: 1001;">
@@ -18,7 +22,7 @@
 
         <div class="parallax"></div>
 
-        <div id="header1">
+        <div id=" eader1">
             <h1 class="font" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #DDD8B8;">
                 Chez-Juan
             </h1>

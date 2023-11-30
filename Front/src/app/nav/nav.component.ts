@@ -14,6 +14,13 @@ import { RouterOutlet } from '@angular/router';
 })
 
 export class NavComponent {
+  addTremorEffect() {
+    const textElements = document.querySelectorAll('.tremor-text');
+    textElements.forEach(element => {
+      element.classList.add('shake');
+    });
+  }
+
   showFiller = false;
 
   constructor(private renderer: Renderer2) { }

@@ -1,4 +1,20 @@
 <br>
+<!-- Modal Structure -->
+<div id="meuModal" class="modal" style="display:none;">
+    <!-- Conteúdo do Modal -->
+    <div class="modal-content">
+        <h4>Título do Modal</h4>
+        <p>Algum conteúdo para o modal...</p>
+    </div>
+    <div class="modal-footer">
+        <button onclick="fecharModal()">Fechar</button>
+    </div>
+</div>
+<button (click)="addTremorEffect()">Ativar Tremor</button>
+<button (click)="removeTremorEffect()">Desativar Tremor</button>
+
+
+
 <div id="couverts"></div>
 <div style="display: flex; justify-content: center; align-items: center;">
     <h1 class="font2">Couverts</h1>
@@ -17,7 +33,7 @@
         <td>Batata Doce Assada com Marshmallow <p style="color: orangered;">56</p></td>
     </tr>
     <tr>
-        <td class="border2">Arroz de Limão com Ervilhas <p style="color: orangered;">54</p></td>
+        <td class="border2"><span class="tremor-text">Arroz de Limão com Ervilhas</span><p style="color: orangered;">54</p></td>
         <td class="border2">Salada Caesar Clássica <p style="color: orangered;">52</p></td>
         <td class="border2">Gratinado de Couve-Flor com Queijo Azul <p style="color: orangered;">65</p></td>
         <td class="border2">Risoto de Açafrão com Ervilhas Frescas <p style="color: orangered;">58</p></td>
