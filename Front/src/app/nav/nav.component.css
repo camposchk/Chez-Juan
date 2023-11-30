@@ -25,7 +25,8 @@
 
 .parallax {
     background-image: url("https://conteudo.imguol.com.br/c/entretenimento/60/2022/01/13/folhas-diversas-1642109435159_v2_1920x1080.jpg");
-    min-height: 1000px;
+    min-height: 100%;
+    /* min-width: 100%; */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,6 +37,4 @@
     display: none;
     transform: 0.5s;
   }
-
-
   
