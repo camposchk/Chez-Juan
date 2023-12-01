@@ -1,0 +1,29 @@
+<div style="height: 400px; width: 400px; overflow: hidden; border: 2px solid #DDD8B8; border-radius: 10px; background-color: #00272b; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <!-- <img src="../../assets/logoclaro.png" alt="" style="height: 50px; width: 50px; margin-bottom: 10px;"> -->
+    <h1 style="color: #DDD8B8;" class="font">Cadastrar Produto</h1>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Produto</mat-label>
+            <input matInput placeholder="Meu Produto" [(ngModel)]="nome"/>
+        </mat-form-field>
+    </p>
+    
+    <p>
+        <mat-form-field appearance="fill" style="width: 212px;">
+            <mat-label>Preço</mat-label>
+            <span matPrefix style="color: lightgray; margin-left: 8px;">R$ &nbsp;</span>
+            <input matInput [(ngModel)]="preco"/>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field>
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="selected" name="categoria">
+                <mat-option *ngFor="let cat of categorias" [value]="cat.value">{{cat.viewValue}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </p>
+        
+    <button mat-flat-button (click)="cadastrar()" style="background-color: #DDD8B8; color: #00272b;">Cadastrar</button>
+</div>

@@ -3,6 +3,10 @@
     <div style="display: flex; flex-direction: column; margin-right: 18px;"> 
       <mat-slide-toggle style="margin-bottom: 10px;" (change)="onToggleChange()">ADM</mat-slide-toggle>
         <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput #input placeholder="Ex: Juan" [(ngModel)]="nome">
+        </mat-form-field>    
+        <mat-form-field>
           <mat-label>Email</mat-label>
           <input matInput #input placeholder="Ex: juan@gmail.com" [(ngModel)]="username">
         </mat-form-field>    

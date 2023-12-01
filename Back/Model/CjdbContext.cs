@@ -15,7 +15,15 @@ public partial class CjdbContext : DbContext
     {
     }
 
+    public virtual DbSet<Cupom> Cupoms { get; set; }
+
     public virtual DbSet<Imagem> Imagems { get; set; }
+
+    public virtual DbSet<ItemPedido> ItemPedidos { get; set; }
+
+    public virtual DbSet<Pedido> Pedidos { get; set; }
+
+    public virtual DbSet<Produto> Produtos { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
@@ -25,22 +33,85 @@ public partial class CjdbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Cupom>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Cupom__3214EC27C43EEAA3");
+
+            entity.ToTable("Cupom");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Codigo)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<Imagem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC273A3C4337");
+            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC2748F8487A");
 
             entity.ToTable("Imagem");
 
             entity.Property(e => e.Id).HasColumnName("ID");
         });
 
+        modelBuilder.Entity<ItemPedido>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ItemPedi__3214EC277CC27758");
+
+            entity.ToTable("ItemPedido");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.PedidoId).HasColumnName("PedidoID");
+            entity.Property(e => e.ProdutoId).HasColumnName("ProdutoID");
+            entity.Property(e => e.Qtd).HasDefaultValueSql("((1))");
+
+            entity.HasOne(d => d.Pedido).WithMany(p => p.ItemPedidos)
+                .HasForeignKey(d => d.PedidoId)
+                .HasConstraintName("FK__ItemPedid__Pedid__440B1D61");
+
+            entity.HasOne(d => d.Produto).WithMany(p => p.ItemPedidos)
+                .HasForeignKey(d => d.ProdutoId)
+                .HasConstraintName("FK__ItemPedid__Produ__4316F928");
+        });
+
+        modelBuilder.Entity<Pedido>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Pedido__3214EC27A8E04E70");
+
+            entity.ToTable("Pedido");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.HoraEntrega).HasColumnType("datetime");
+            entity.Property(e => e.HoraPedido).HasColumnType("datetime");
+            entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+            entity.HasOne(d => d.Usuario).WithMany(p => p.Pedidos)
+                .HasForeignKey(d => d.UsuarioId)
+                .HasConstraintName("FK__Pedido__UsuarioI__3C69FB99");
+        });
+
+        modelBuilder.Entity<Produto>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Produto__3214EC27901CE115");
+
+            entity.ToTable("Produto");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Nome)
+                .HasMaxLength(80)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC27BC85B880");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC272EF81D3E");
 
             entity.ToTable("Usuario");
 
             entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Email)
+                .HasMaxLength(80)
+                .IsUnicode(false);
             entity.Property(e => e.ImagemId).HasColumnName("ImagemID");
             entity.Property(e => e.Nome)
                 .HasMaxLength(80)

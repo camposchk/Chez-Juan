@@ -1,14 +1,14 @@
 <mat-sidenav-container style="height: 100%;">
     <mat-sidenav #drawer class="example-sidenav" mode="side" style="height: 100%; width: 250px; background-color: #00272b;">
-        <p style="margin-top: 5px; margin-left: 5px;">Olá, Fulano!</p>
+        <p style="margin-top: 40px; margin-left: 30px; color: #DDD8B8;">Olá, {{meuNome}}!</p>
 
         <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
         <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>
-        <button (click)="showFiller = !showFiller" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Admin</button>
+        <button *ngIf="isAdmin" (click)="showFiller = !showFiller" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Admin</button>
 
         <div *ngIf="showFiller">
             <button mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Promoções</button>
-            <button mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar produto</button>
+            <button (click)="abrirCadastroProduto()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Produto</button>
             <button (click)="addTremorEffect()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Deletar Produto</button>
         </div>
     </mat-sidenav>    

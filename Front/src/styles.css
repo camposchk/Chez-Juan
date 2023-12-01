@@ -11,5 +11,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --mdc-filled-text-field-focus-label-text-color: #DDD8B8;   
     /* --mdc-filled-text-field-label-text-color: #DDD8B8; */
 
+    --mat-option-selected-state-label-text-color: #DDD8B8;
+    --mat-select-focused-arrow-color: #DDD8B8;
+    --mat-select-panel-background-color: #00272B;
+    --mat-select-placeholder-text-color: #DDD8B8;
+    /* --mdc-filled-text-field-container-color: #00272B; */
     --mdc-fab-container-color: 
+    /* --mat-form-field-state-layer-color: */
+    /* --mat-option-selected-state-layer-color: */
 }

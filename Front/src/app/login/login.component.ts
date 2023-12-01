@@ -31,6 +31,7 @@ export class LoginComponent {
 
   username: string = ""
   password: string = ""
+  nome: string = ""
   adm: boolean = false
 
   logar()
@@ -38,7 +39,8 @@ export class LoginComponent {
     this.client.login({
       login: this.username,
       password: this.password,
-      adm: this.adm
+      adm: this.adm,
+      nome: this.nome
 
     }, (result: any) => {
       if (result == null)
@@ -47,9 +49,10 @@ export class LoginComponent {
       }
       else
       {
-        sessionStorage.setItem('jwt', JSON.stringify(result));
-        // console.log(JSON.stringify(result.loggedUser.IsAdm))
-        // localStorage.setItem('isAdm', JSON.stringify(result.loggedUser.IsAdm));
+        console.log(result);
+        sessionStorage.setItem('jwt', JSON.stringify(result.jwt));
+        localStorage.setItem('IsAdm', JSON.stringify(result.adm));
+        localStorage.setItem('Nome', JSON.stringify(result.nome));
 
         this.router.navigate(["/home"]);
       }

@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ClientService } from '../client.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,13 +24,14 @@ export class CadastroComponent {
   adm: boolean = false
   username: string = ""
   password: string = ""
+  nome: string = ""
   repeatPassword: string = ""
 
   onToggleChange() {
     this.adm = !this.adm;
   }
 
-  constructor(private client: ClientService) {}
+  constructor(private client: ClientService, private router: Router) {}
 
   create()
   {
@@ -38,8 +40,10 @@ export class CadastroComponent {
       this.client.register({
         login: this.username,
         password: this.password,
-        adm: this.adm
+        adm: this.adm,
+        nome: this.nome
       })
+      this.router.navigate(["/"]);
     }
     else
     {

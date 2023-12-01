@@ -46,9 +46,11 @@ public class UserController : ControllerBase
             photoId = loggedUser.ImagemId,
             isAdm = loggedUser.IsAdm
         });
-        
-        Console.WriteLine(loggedUser.IsAdm);
-        return Ok(new { jwt, loggedUser.IsAdm });
+
+        var adm = loggedUser.IsAdm;
+        var nome = loggedUser.Nome;
+
+        return Ok(new { jwt, adm, nome });
     }
 
     [HttpPost("register")]
@@ -57,7 +59,6 @@ public class UserController : ControllerBase
         [FromBody]UserData user,
         [FromServices]IUserService service)
     {
-        Console.WriteLine(user.Adm);
         var errors = new List<string>();
         if (user is null || user.Login is null)
             errors.Add("É necessário informar um login.");

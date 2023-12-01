@@ -22,7 +22,8 @@ public class UserService : IUserService
         Usuario usuario = new Usuario();
         var salt = await security.GenerateSalt();
 
-        usuario.Nome = data.Login;
+        usuario.Email = data.Login;
+        usuario.Nome = data.Nome;
         usuario.IsAdm = data.Adm;
         usuario.Senha = await security.HashPassword(
             data.Password, salt
@@ -37,7 +38,7 @@ public class UserService : IUserService
     {
         var query =
             from u in this.ctx.Usuarios
-            where u.Nome == login
+            where u.Email == login
             select u;
         
         return await query.FirstOrDefaultAsync();
