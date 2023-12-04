@@ -8,5 +8,7 @@ using Model;
 public interface IProductService
 {
     Task Create(ProductData data);
+
+    Task<List<Produto>> GetAllProducts();
     // Task<Product> Delete();
 }

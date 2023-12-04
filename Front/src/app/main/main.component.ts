@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './../product.service';
+import { ProductData } from './../product-data';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
-  standalone: true,
+  standalone: true, 
+  imports: [CommonModule, FormsModule],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+
+export class MainComponent implements OnInit {
+
+  produtos: ProductData[] = [];
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.buscarProdutos();
+  }
+
+  buscarProdutos() {
+    this.productService.buscarProdutos().subscribe(
+      (produtos: ProductData[]) => {
+        this.produtos = produtos;
+      },
+      error => console.error(error)
+    );
+  }
 
   addTremorEffect() {
     const textElements = document.querySelectorAll('.tremor-text');

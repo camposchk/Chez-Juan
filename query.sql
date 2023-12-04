@@ -58,4 +58,5 @@ create table ItemPedido(
 );
 go
 
-
+select * from Produto;
+delete from Produto where ID != 0;

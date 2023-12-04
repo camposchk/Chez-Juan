@@ -27,6 +27,11 @@ public class ProductService : IProductService
         await this.ctx.SaveChangesAsync();
     }
 
+    public async Task<List<Produto>> GetAllProducts()
+    {
+        return await ctx.Produtos.ToListAsync();
+    }
+
     // public async Task<Produto> GetByLogin(string login)
     // {
     //     var query =

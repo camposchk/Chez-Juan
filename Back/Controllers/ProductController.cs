@@ -27,6 +27,14 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
+    [HttpGet("buscar")]
+    [EnableCors("DefaultPolicy")]
+    public async Task<IActionResult> GetAllProducts([FromServices] IProductService service)
+    {
+        var products = await service.GetAllProducts();
+        return Ok(products);
+    }
+
     [HttpDelete]
     [EnableCors("DefaultPolicy")]
     public IActionResult DeleteProduct()

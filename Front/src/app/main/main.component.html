@@ -13,7 +13,11 @@
 <button (click)="addTremorEffect()">Ativar Tremor</button>
 <button (click)="removeTremorEffect()">Desativar Tremor</button>
 
-
+<div *ngFor="let produto of produtos">
+    <h3>{{ produto.nome }}</h3>
+    <p>Preço: {{ produto.preco }}</p>
+    <p>Categoria: {{ produto.categoria }}</p>
+</div>
 
 <div id="couverts"></div>
 <div style="display: flex; justify-content: center; align-items: center;">

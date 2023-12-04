@@ -9,13 +9,11 @@ export class ApiClientService {
 
   constructor(private http: HttpClient) { }
 
-  get(url: string) {
-    return this.http
-      .get(this.backend + url)
+  get<T>(url: string) {
+    return this.http.get<T>(this.backend + url);
   }
 
-  post(url: string, obj: any) {
-    return this.http
-      .post(this.backend + url, obj)
+  post<T>(url: string, obj: any) {
+    return this.http.post<T>(this.backend + url, obj);
   }
 }

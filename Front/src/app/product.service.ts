@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProductData } from './product-data';
 import { ApiClientService } from './api-client.service';
 
@@ -8,21 +9,12 @@ import { ApiClientService } from './api-client.service';
 export class ProductService {
   constructor(private http: ApiClientService) { }
 
-  cadastrar(data: ProductData)
-  {
+  cadastrar(data: ProductData) {
     this.http.post('product/cadastrar', data)
       .subscribe(response => console.log(response))
   }
 
-  login(data: ProductData, callback: any)
-  {
-    this.http.post('product/cadastrar', data)
-      .subscribe(
-        response => {
-          callback(response)
-        },
-        error => { 
-          callback(null)
-        })
+  buscarProdutos(): Observable<ProductData[]> {
+    return this.http.get<ProductData[]>('product/buscar');
   }
 }
