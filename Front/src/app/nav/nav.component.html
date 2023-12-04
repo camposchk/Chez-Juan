@@ -1,6 +1,14 @@
 <mat-sidenav-container style="height: 100%;">
     <mat-sidenav #drawer class="example-sidenav" mode="side" style="height: 100%; width: 250px; background-color: #00272b;">
-        <p style="margin-top: 40px; margin-left: 30px; color: #DDD8B8;">Olá, {{meuNome}}!</p>
+        <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 40px; ">
+            <!-- <p style="margin-top: 40px; margin-left: 30px; color: #DDD8B8;">Olá, {{meuNome}}!</p> -->
+            <p style="margin-left: 30px; color: #DDD8B8;">Olá, {{meuNome}}!</p>
+        
+            <button mat-mini-fab color="basic" style="margin-left: 80px; margin-bottom: 15px;" (click)="abrirCarrinho()">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </div>
+        
 
         <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
         <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>

@@ -15,7 +15,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [ ] Possui tela de Cadastro de Promoções.
 - [X] Possui tela do totem.
 - [ ] Possui tela dos gráficos.
-- [ ] Tela do totem tem interface para inserção de código da promoção.
+- [X] Tela do totem tem interface para inserção de código da promoção.
 - [ ] Tela do totem tem interface para colocar itens na sacola.
 - [X] Banco de dados criado com tabelas de Usuário, Pedido, ItemPedido, Produto, Promoção ou similar.
 - [X] Rotas no Frontend Configuradas.
@@ -31,7 +31,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [X] Aplica slow Hash na senha do usuário.
 - [X] Login retorna JWT para o frontend que o guarda no Sessin Storage.
 - [X] Após o Login a página de usuário normal ou adm é mostrada corretamente.
-- [ ] Adm é capaz de ver produtos existentes.
+- [X] Adm é capaz de ver produtos existentes.
 - [X] Adm é capaz de cadastrar novos produtos.
 - [ ] Adm é capaz de ver promoções existentes.
 - [ ] Adm é capaz de criar novas promoções.

@@ -13,11 +13,11 @@
 <button (click)="addTremorEffect()">Ativar Tremor</button>
 <button (click)="removeTremorEffect()">Desativar Tremor</button>
 
-<div *ngFor="let produto of produtos">
+<!-- <div *ngFor="let produto of produtos">
     <h3>{{ produto.nome }}</h3>
     <p>Preço: {{ produto.preco }}</p>
     <p>Categoria: {{ produto.categoria }}</p>
-</div>
+</div> -->
 
 <div id="couverts"></div>
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -25,6 +25,11 @@
 </div>
 <table>
     <tr>
+        <!-- <div *ngFor="let produto of produtos">
+            <div *ngIf="produto.categoria === 0" >
+                <td class="border1">{{ produto.nome }}<p style="color: orangered;">{{ produto.preco }}</p></td>
+            </div>
+        </div> -->
         <td class="border1">Purê de Batata Trufado <p style="color: orangered;">55</p></td>
         <td class="border1">Espargos Grelhados com Molho Hollandaise <p style="color: orangered;">58</p></td>
         <td class="border1">Risoto de Açafrão <p style="color: orangered;">60</p></td>
@@ -73,10 +78,15 @@
 </div>
 <table>
     <tr>
-        <td class="border1">Filé Mignon ao Molho de Trufas Brancas <p style="color: orangered;">175</p></td>
+        <div *ngFor="let produto of produtos">
+            <div *ngIf="produto.categoria === 2" >
+                <td class="border1">{{ produto.nome }}<p style="color: orangered;">{{ produto.preco }}</p></td>
+            </div>
+        </div>
+        <!-- <td class="border1">Filé Mignon ao Molho de Trufas Brancas <p style="color: orangered;">175</p></td>
         <td class="border1">Salmão Selvagem Grelhado com Risoto de Limão Siciliano <p style="color: orangered;">165</p></td>
         <td class="border1">Pato Confit com Laranja e Purê de Batata-Doce <p style="color: orangered;">180</p></td>
-        <td class="border1">Vieiras Frescas com Espuma de Ervas e Purê de Cenoura <p style="color: orangered;">185</p></td>
+        <td class="border1">Vieiras Frescas com Espuma de Ervas e Purê de Cenoura <p style="color: orangered;">185</p></td> -->
     </tr>
     <tr>
         <td>Risoto de Lagosta com Trufas Negras <p style="color: orangered;">190</p></td>

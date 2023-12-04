@@ -52,6 +52,11 @@ export class NavComponent implements OnInit {
   {
     this.dialog.open(cadastroProduto);
   }
+
+  abrirCarrinho()
+  {
+    this.dialog.open(carrinho);
+  }
 }
 
 interface Categoria {
@@ -89,6 +94,27 @@ export class cadastroProduto
       preco: this.preco,
       categoria: this.selected
     })
+    this.dialogRef.close()
+  }
+}
+
+@Component({
+  selector: 'app-carrinho',
+  standalone: true,
+  imports: [CommonModule, MatInputModule, MatButtonModule, MatFormFieldModule, FormsModule, MatSelectModule, MatIconModule, MatButtonModule],
+  templateUrl: './carrinho.html',
+  styleUrl: './nav.component.css'
+})
+export class carrinho
+{
+  nome: string = ""
+  preco: number = 0
+
+
+  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService) {}
+
+  finalizar()
+  {
     this.dialogRef.close()
   }
 }
