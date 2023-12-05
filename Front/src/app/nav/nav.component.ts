@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RouterOutlet } from '@angular/router';
 import { ProductService } from '../product.service';
+import { CartService } from './../cart.service';
+import { ProductData } from '../product-data';
 
 @Component({
   selector: 'app-nav',
@@ -41,12 +43,13 @@ export class NavComponent implements OnInit {
     });
   }
 
-  scrollToDestination(destinationId: string) {
-    const destinationElement = this.renderer.selectRootElement(destinationId, true);
+  scrollToDestination(destinationName: string) {
+    const destinationElement = document.getElementById(destinationName.toLowerCase());
     if (destinationElement) {
       destinationElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 
   abrirCadastroProduto()
   {
@@ -110,8 +113,19 @@ export class carrinho
   nome: string = ""
   preco: number = 0
 
+  items: ProductData[] = [];
 
-  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService) {}
+  public total: number = 0;
+
+
+  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService, private cartService: CartService) {
+    this.items = this.cartService.getItems();
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    this.total = this.items.reduce((acc, item) => acc + item.preco, 0);
+  }
 
   finalizar()
   {

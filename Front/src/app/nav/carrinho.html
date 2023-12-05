@@ -3,6 +3,24 @@
     <h1 style="color: #DDD8B8;" class="font">Carrinho</h1>
     
     <div style="display: flex; align-items: center; justify-content: flex-start;">
+        <div style="height: 100px; overflow-y: auto; width: 100%;">
+            <ul>
+                <ng-container *ngFor="let item of items">
+                    <li style="color: #DDD8B8;">
+                        <p>
+                            {{ item.nome }}
+                        </p>
+                        <p style="color: orangered;">
+                            {{ item.preco }}
+                        </p>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: flex-start; margin-top: 20px;">
+
         <p>
             <mat-form-field appearance="fill" style="width: 250px;">
                 <input matInput placeholder="Insira aqui seu cupom"/>
@@ -16,7 +34,7 @@
 
     <hr style="color: #DDD8B8; background-color: #DDD8B8; width: 300px;">
 
-    <p style="color: #DDD8B8; text-align: left; width: 100%; margin-left: 100px;">Total: R$1000,00</p>
+    <p style="color: #DDD8B8; text-align: left; width: 100%; margin-left: 100px;">Total: R${{ total.toFixed(2) }}</p>
     <p style="color: #DDD8B8; text-align: left; width: 100%; margin-left: 100px;">Descontos: R$0,00</p>
         
     <button mat-flat-button (click)="finalizar()" style="background-color: #DDD8B8; color: #00272b;">Finalizar pedido</button>

@@ -55,13 +55,40 @@ td:last-child {
     0%, 100% { transform: rotate(0); }
     25% { transform: rotate(-2deg); }
     75% { transform: rotate(2deg); }
-  }
+}
   
-  .shake {
+.shake {
     display: inline-block; /* Importante para a transformação */
     animation: shake 0.3s ease-in-out infinite;
     cursor: pointer;
-  }
+}
+
+.tremor-text {
+    position: relative;
+    display: inline-block;
+}
+
+.tremor-text .text {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.tremor-text .shop {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    position: absolute;
+    bottom: 10px;
+    left: 2px;
+}
+
+.tremor-text:hover .text {
+    opacity: 0;
+}
+
+.tremor-text:hover .shop {
+    opacity: 1;
+    cursor: pointer;
+}
+
   
   
   
