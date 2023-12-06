@@ -35,7 +35,7 @@ public partial class CjdbContext : DbContext
     {
         modelBuilder.Entity<Cupom>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cupom__3214EC27C43EEAA3");
+            entity.HasKey(e => e.Id).HasName("PK__Cupom__3214EC270D9ED6F8");
 
             entity.ToTable("Cupom");
 
@@ -43,11 +43,13 @@ public partial class CjdbContext : DbContext
             entity.Property(e => e.Codigo)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+            entity.Property(e => e.IsPercentage).HasColumnName("isPercentage");
+            entity.Property(e => e.Valor).HasColumnName("valor");
         });
 
         modelBuilder.Entity<Imagem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC2748F8487A");
+            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC2765AA35C8");
 
             entity.ToTable("Imagem");
 
@@ -56,7 +58,7 @@ public partial class CjdbContext : DbContext
 
         modelBuilder.Entity<ItemPedido>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ItemPedi__3214EC277CC27758");
+            entity.HasKey(e => e.Id).HasName("PK__ItemPedi__3214EC271DF6CB5F");
 
             entity.ToTable("ItemPedido");
 
@@ -76,7 +78,7 @@ public partial class CjdbContext : DbContext
 
         modelBuilder.Entity<Pedido>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Pedido__3214EC27A8E04E70");
+            entity.HasKey(e => e.Id).HasName("PK__Pedido__3214EC27AA80288D");
 
             entity.ToTable("Pedido");
 
@@ -92,7 +94,7 @@ public partial class CjdbContext : DbContext
 
         modelBuilder.Entity<Produto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Produto__3214EC27901CE115");
+            entity.HasKey(e => e.Id).HasName("PK__Produto__3214EC279B092A5B");
 
             entity.ToTable("Produto");
 
@@ -104,7 +106,7 @@ public partial class CjdbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC272EF81D3E");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC277C0785B0");
 
             entity.ToTable("Usuario");
 

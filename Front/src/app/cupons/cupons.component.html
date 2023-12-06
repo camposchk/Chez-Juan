@@ -1,0 +1,19 @@
+<div style="position: absolute; top: 0; left: 0; z-index: 1001;">
+    <button type="button" mat-button class="b" (click)="return()">
+        <mat-icon fontIcon="keyboard_arrow_left" style="color: #DDD8B8;"></mat-icon>
+    </button>
+</div>
+
+<div *ngFor="let cupom of cupons" style="display: flex; justify-content: center; align-items: center;">
+    <div  style="display: flex; justify-content: center; align-items: center; width: 500px; height: 100px; border: 2px solid #DDD8B8; margin-top: 50px; flex-direction: column;">
+        <h1 style="color: #DDD8B8;">{{ cupom.codigo }}</h1>
+        <div>
+            <span *ngIf="cupom.isPercentage; else valorFixo">
+                <p style="color: #DDD8B8;">{{ cupom.valor }}% de desconto</p>
+            </span>
+            <ng-template #valorFixo>
+                <p style="color: #DDD8B8;">{{ cupom.valor | currency:'BRL':'symbol-narrow' }} reais de desconto</p>
+            </ng-template>
+        </div>
+    </div>
+</div>

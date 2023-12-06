@@ -11,7 +11,10 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { RouterOutlet } from '@angular/router';
 import { ProductService } from '../product.service';
 import { CartService } from './../cart.service';
+import { CouponService } from './../coupon.service';
 import { ProductData } from '../product-data';
+import { CouponData } from '../coupon.data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -21,7 +24,7 @@ import { ProductData } from '../product-data';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  constructor(private renderer: Renderer2, public dialog: MatDialog) { }
+  constructor(private renderer: Renderer2, public dialog: MatDialog, private router: Router) { }
   
   showFiller = false;
   isAdmin: boolean = false;
@@ -50,6 +53,11 @@ export class NavComponent implements OnInit {
     }
   }
 
+  cupons()
+  {
+    console.log("cupons");
+    this.router.navigate(["/cupons"]);
+  }
 
   abrirCadastroProduto()
   {
@@ -59,6 +67,11 @@ export class NavComponent implements OnInit {
   abrirCarrinho()
   {
     this.dialog.open(carrinho);
+  }
+
+  abrirCadastroCupom()
+  {
+    this.dialog.open(cadastroCupom);
   }
 }
 
@@ -98,6 +111,7 @@ export class cadastroProduto
       categoria: this.selected
     })
     this.dialogRef.close()
+    window.location.reload()
   }
 }
 
@@ -116,9 +130,14 @@ export class carrinho
   items: ProductData[] = [];
 
   public total: number = 0;
+  cupomInserido: string = '';
+  descontoAplicado: number = 0;
+  mensagemErro: string = '';
+
+  flag = false;
 
 
-  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService, private cartService: CartService) {
+  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService, private cartService: CartService, private couponService: CouponService) {
     this.items = this.cartService.getItems();
     this.calculateTotal();
   }
@@ -127,8 +146,64 @@ export class carrinho
     this.total = this.items.reduce((acc, item) => acc + item.preco, 0);
   }
 
+  aplicarCupom() {
+
+
+    console.log(this.cupomInserido);
+    this.couponService.verificarCupom(this.cupomInserido).subscribe(
+      cupom => {
+        if (cupom && !this.flag) {
+          this.descontoAplicado = cupom.isPercentage ? this.total * (cupom.valor / 100) : cupom.valor;
+          this.total -= this.descontoAplicado;
+          this.mensagemErro = '';
+          this.flag = true;
+        } else if(this.flag) {
+          this.mensagemErro = 'Cupom já aplicado.';
+          this.descontoAplicado = 0;
+        } else {
+          this.mensagemErro = 'Cupom inválido.';
+          this.descontoAplicado = 0;
+        }
+      },
+      erro => {
+        this.mensagemErro = 'Erro ao verificar o cupom.';
+        this.descontoAplicado = 0;
+      }
+    );
+  }
+
   finalizar()
   {
+    this.dialogRef.close()
+  }
+}
+
+@Component({
+  selector: 'app-cadastro-cupom',
+  standalone: true,
+  imports: [CommonModule, MatInputModule, MatButtonModule, MatFormFieldModule, FormsModule, MatSelectModule, MatIconModule],
+  templateUrl: './cadastroCupom.html',
+  styleUrl: './nav.component.css'
+})
+export class cadastroCupom
+{
+  codigo: string = ""
+  valor: number = 0
+  isPercent: boolean = false;
+
+  constructor(public dialogRef: MatDialogRef<cadastroCupom>, public cupom: CouponService) { }
+ 
+  toggleIcon() {
+    this.isPercent = !this.isPercent;
+  }
+  
+  cadastrar()
+  {
+    this.cupom.cadastrar({
+      codigo: this.codigo,
+      valor: this.valor,
+      isPercentage: this.isPercent
+    })
     this.dialogRef.close()
   }
 }

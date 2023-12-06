@@ -1,0 +1,23 @@
+<div style="height: 400px; width: 400px; overflow: hidden; border: 2px solid #DDD8B8; border-radius: 10px; background-color: #00272b; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <!-- <img src="../../assets/logoclaro.png" alt="" style="height: 50px; width: 50px; margin-bottom: 10px;"> -->
+    <h1 style="color: #DDD8B8;" class="font">Cadastrar Cupom</h1>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Cupom</mat-label>
+            <input matInput placeholder="Código" [(ngModel)]="codigo"/>
+        </mat-form-field>
+    </p>
+    
+    <p>
+        <button mat-mini-fab color="basic" style="margin-right: 10px;" (click)="toggleIcon()" [ngClass]="{'percentButton': isPercent, 'moneyButton': !isPercent}">
+            <mat-icon style="color: #DDD8B8;" [ngClass]="{'percentIcon': isPercent, 'moneyIcon': !isPercent}">{{ isPercent ? 'percent' : 'attach_money' }}</mat-icon>
+        </button>
+
+        <mat-form-field appearance="fill" style="width: 212px; margin-right: 50px;">
+            <mat-label>Benefício</mat-label>
+            <input matInput [(ngModel)]="valor"/>
+        </mat-form-field>
+    </p>
+
+    <button mat-flat-button (click)="cadastrar()" style="background-color: #DDD8B8; color: #00272b;">Cadastrar</button>
+</div>

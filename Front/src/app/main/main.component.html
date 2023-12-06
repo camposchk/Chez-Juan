@@ -10,8 +10,8 @@
         <button onclick="fecharModal()">Fechar</button>
     </div>
 </div>
-<button (click)="addTremorEffect()">Ativar Tremor</button>
-<button (click)="removeTremorEffect()">Desativar Tremor</button>
+<!-- <button (click)="addTremorEffect()">Ativar Tremor</button>
+<button (click)="removeTremorEffect()">Desativar Tremor</button> -->
 
 <ng-container *ngFor="let category of categories">
     <div [id]="category.name | lowercase">
@@ -25,9 +25,9 @@
                         <td [ngClass]="{'border1': isFirstRow, 'border2': isLastRow}">
                             <span class="tremor-text">
                                 <span class="text">{{ produto.nome }}</span>
-                                <button mat-mini-fab color="basic" class="shop" (click)="addToCart(produto)">
-                                    <mat-icon>add_shopping_cart</mat-icon>
-                                </button>
+                                <!-- <button mat-mini-fab color="basic" class="shop" (click)="addToCart(produto)"> -->
+                                    <mat-icon class="shop" (click)="addToCart(produto)">add_shopping_cart</mat-icon>
+                                <!-- </button> -->
                                 <p style="color: orangered;" class="text">{{ produto.preco }}</p>
                             </span>
                         </td>

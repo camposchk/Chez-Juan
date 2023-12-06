@@ -45,6 +45,20 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* .percentButton {
+  background-color: #DDD8B8;
+} */
+
+.percentIcon {
+  color: #00272b;
+}
+
+/* .class-background-money {
+  background-color: [cor de fundo original];
+  color: [cor do texto original];
+}
+ */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

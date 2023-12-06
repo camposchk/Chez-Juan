@@ -11,11 +11,11 @@
         
 
         <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
-        <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>
+        <button (click)="cupons()" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>
         <button *ngIf="isAdmin" (click)="showFiller = !showFiller" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Admin</button>
 
         <div *ngIf="showFiller">
-            <button mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Promoções</button>
+            <button (click)="abrirCadastroCupom()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Promoções</button>
             <button (click)="abrirCadastroProduto()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Cadastrar Produto</button>
             <button (click)="addTremorEffect()" mat-raised-button class="sidebuttons" style="background-color: #DDD8B8; color: #00272b;">Deletar Produto</button>
         </div>
