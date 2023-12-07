@@ -53,6 +53,7 @@ export class LoginComponent {
         sessionStorage.setItem('jwt', JSON.stringify(result.jwt));
         localStorage.setItem('IsAdm', JSON.stringify(result.adm));
         localStorage.setItem('Nome', JSON.stringify(result.nome));
+        localStorage.setItem('Id', JSON.stringify(result.userId));
 
         this.router.navigate(["/home"]);
       }

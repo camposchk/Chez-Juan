@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Back.Model;
 using Back.Services;
 using Trevisharp.Security.Jwt;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,11 +17,18 @@ builder.Services.AddScoped<CjdbContext>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<ICouponService, CouponService>();
+builder.Services.AddTransient<IOrderService, OrderService>();
 builder.Services.AddSingleton<CryptoService>(p => new(){
     InternalKeySize = 24,
     UpdatePeriod = TimeSpan.FromDays(1)
 });
 builder.Services.AddSingleton<ISecurityService, SecurityService>();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
 
 builder.Services.AddCors(options =>
 {

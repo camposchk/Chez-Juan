@@ -10,7 +10,7 @@
         </div>
         
 
-        <button mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
+        <button (click)="pedidos()" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8;">Meus Pedidos</button>
         <button (click)="cupons()" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Cupons</button>
         <button *ngIf="isAdmin" (click)="showFiller = !showFiller" mat-raised-button class="sidebuttons" style="background-color: #00272b; color: #DDD8B8">Admin</button>
 

@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CuponsComponent } from './cupons/cupons.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 export const routes: Routes = [
     { path: 'nav', component: NavComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'cadastro', component: CadastroComponent },
     { path: 'cupons', component: CuponsComponent },
+    { path: 'pedidos', component: PedidosComponent },
     { path: '', component: LoginComponent }
 ];

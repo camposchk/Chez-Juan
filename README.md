@@ -10,7 +10,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [X] Possui tela de usuário normal das promoções.
 - [X] Possui tela para visualizar código da promoção.
 - [X] Possui tela de Administrador.
-- [ ] Possui tela de Pedidos.
+- [X] Possui tela de Pedidos.
 - [X] Possui tela de Cadastro de Produtos.
 - [X] Possui tela de Cadastro de Promoções.
 - [X] Possui tela do totem.
@@ -38,14 +38,14 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [ ] Adm é capaz de ver Dashboard com dois gráficos de informações.
 - [ ] Gráficos do Dashboard realmente refletem os dados no banco.   
 - [X] É possível ver produtos existentes no Totem.
-- [x] É possível adicionar itens em uma sacola.
-- [ ] Ao finalizar a compra o pedido é realmente registrado no banco de dados.
-- [x] É possível ver o custo total do pedido.
+- [X] É possível adicionar itens em uma sacola.
+- [X] Ao finalizar a compra o pedido é realmente registrado no banco de dados.
+- [X] É possível ver o custo total do pedido.
 - [X] É possível adicionar uma promoção com um código promocional.
 - [X] Promoção afeta o custo total do pedido.
-- [ ] Pedidos podem ser vistos na tela de pedidos.
+- [X] Pedidos podem ser vistos na tela de pedidos.
 - [ ] É possível editar um pedido como 'Entregue' de alguma forma.
-- [ ] Apenas os pedidos corretos aparecem na tela de pedidos (finalizados, porém não entregues).
+- [X] Apenas os pedidos corretos aparecem na tela de pedidos (finalizados, porém não entregues).
 - [X] Usuário é capaz de ver as promoções no sistema.
 - [X] Usuário é capaz de gerar um código de promoção válido.
 - [X] Sistema realmente válida código de promoção.

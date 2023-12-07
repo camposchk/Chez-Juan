@@ -1,0 +1,19 @@
+<div style="position: absolute; top: 0; left: 0; z-index: 1001;">
+    <button type="button" mat-button class="b" (click)="return()">
+        <mat-icon fontIcon="keyboard_arrow_left" style="color: #DDD8B8;"></mat-icon>
+    </button>
+</div>
+
+<div  *ngFor="let pedido of pedidos"style="display: flex; justify-content: center; align-items: center;">
+    <div  style="display: flex; justify-content: center; align-items: center; width: 500px; border: 2px solid #DDD8B8; margin-top: 50px; flex-direction: column;">
+        <p style="color: #DDD8B8;">Hora do Pedido: {{ pedido.horaPedido | date:'medium' }}</p>
+        <!-- <p style="color: #DDD8B8;">Hora de Entrega: {{ pedido.horaEntrega | date:'medium' }}</p> -->
+        <p style="color: #DDD8B8;">Itens do Pedido:</p>
+        <ul>
+            <li *ngFor="let item of pedido.itens" style="color: #DDD8B8;">
+                Produto ID: {{ item.produtoId }}, Quantidade: {{ item.quantidade }}
+            </li>
+        </ul>
+    </div>
+</div>
+

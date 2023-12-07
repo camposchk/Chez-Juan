@@ -49,8 +49,9 @@ public class UserController : ControllerBase
 
         var adm = loggedUser.IsAdm;
         var nome = loggedUser.Nome;
+        var userId = loggedUser.Id;
 
-        return Ok(new { jwt, adm, nome });
+        return Ok(new { jwt, adm, nome, userId });
     }
 
     [HttpPost("register")]

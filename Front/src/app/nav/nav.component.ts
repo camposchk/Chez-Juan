@@ -14,6 +14,8 @@ import { CartService } from './../cart.service';
 import { CouponService } from './../coupon.service';
 import { ProductData } from '../product-data';
 import { CouponData } from '../coupon.data';
+import { OrderService } from '../order.service';
+import { OrderData, ItemPedidoData } from '../order.data'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -55,8 +57,12 @@ export class NavComponent implements OnInit {
 
   cupons()
   {
-    console.log("cupons");
     this.router.navigate(["/cupons"]);
+  }
+
+  pedidos()
+  {
+    this.router.navigate(["/pedidos"]);
   }
 
   abrirCadastroProduto()
@@ -137,7 +143,7 @@ export class carrinho
   flag = false;
 
 
-  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService, private cartService: CartService, private couponService: CouponService) {
+  constructor(public dialogRef: MatDialogRef<carrinho>, public product: ProductService, private cartService: CartService, private couponService: CouponService, private orderService: OrderService) {
     this.items = this.cartService.getItems();
     this.calculateTotal();
   }
@@ -172,10 +178,23 @@ export class carrinho
     );
   }
 
-  finalizar()
-  {
-    this.dialogRef.close()
+  finalizar() {
+    let orderData: OrderData = {
+      usuarioId: +localStorage.getItem('Id')!,
+      horaPedido: new Date(),
+      itens: this.items.map(item => ({
+        produtoId: item.id!,
+        quantidade: 1,
+        nomeProduto: item.nome, 
+        precoProduto: item.preco 
+      }))
+    };
+  
+    this.orderService.createOrder(orderData);
+  
+    this.dialogRef.close();
   }
+  
 }
 
 @Component({
